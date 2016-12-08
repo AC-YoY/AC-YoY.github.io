@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>slide</title>
+    <script src='http://cdn.bootcss.com/jquery/3.1.1/jquery.js'></script>
+    <style media="screen">
+        .vertical-center {
+            top: 50%;
+            position: relative;
+            transform: translateY(-50%);
+        }
+        .div-container {
+            position: relative;
+            width: 585px;
+            height: 600px;
+            overflow: hidden;
+        }
+        .div-imageBox {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .img-title {
+            display: none;
+        }
+        .img-active {
+            display: block;
+        }
+        .slide-btn {
+            position: absolute;
+            background-color: lightgrey;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            opacity: 0.5;
+
+            color: white;
+            font-size: 40px;
+            text-align: center;
+            border: 0;
+        }
+        .silde-prev {
+            left: 0;
+        }
+        .slide-next {
+            right: 0;
+        }
+        .slide-thumbnails-box {
+            position: absolute;
+            background: darkgrey;
+            bottom: 20px;
+            opacity: 0;
+            padding: 5px 100px 2px 100px;
+
+            left: 35px;
+        }
+        .slide-thumbnails-active {
+            opacity: 0.6;
+        }
+        .img-thumbnails {
+            width: 73.1px;
+            height: 75px;
+            border-bottom: 2px solid black;
+            border-right: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="div-container">
+        <div class="div-imageBox" data-id="0" data-images="4">
+            <img class="img-title img-active" src="./icon/pokemon1.jpg" alt="P1"/>
+            <img class="img-title" src="./icon/pokemon2.jpg" alt="P2"/>
+            <img class="img-title" src="./icon/pokemon3.jpg" alt="P3"/>
+            <img class="img-title" src="./icon/pokemon4.jpg" alt="P4"/>
+            <button class="slide-btn vertical-center slide-prev" type="button"><</button>
+            <button class="slide-btn vertical-center slide-next" type="button">></button>
+        </div>
+        <div class="slide-thumbnails-box">
+            <img class="img-thumbnails" src="./icon/pokemon1.jpg" data-id="0" alt="P1"/>
+            <img class="img-thumbnails" src="./icon/pokemon2.jpg" data-id="1" alt="P2"/>
+            <img class="img-thumbnails" src="./icon/pokemon3.jpg" data-id="2" alt="P3"/>
+            <img class="img-thumbnails" src="./icon/pokemon4.jpg" data-id="3" alt="P4"/>
+        </div>
+    </div>
+<script>
+    var log = function() {
+        console.log.apply(console, arguments)
+    }
+    var bindFlipOver = function() {
+        $('.slide-prev').on('click', function() {
+            playPrev()
+        })
+        $('.slide-next').on('click', function() {
+            playNext()
+        })
+    }
+    var bindThumbnail = function () {
+        $('.img-thumbnails').on('click', function(event) {
+            var id = $(event.target).data().id
+            log(id)
+            playByIndex(id)
+        })
+        $('.slide-thumbnails-box').on('mouseenter', function(event) {
+            log(1)
+            $('.slide-thumbnails-box').addClass('slide-thumbnails-active')
+        })
+        $('.slide-thumbnails-box').on('mouseleave', function(event) {
+            log(2)
+            $('.slide-thumbnails-box').removeClass('slide-thumbnails-active')
+        })
+    }
+    var play = function(offset) {
+        var len = $('.div-imageBox').data().images
+        // log("总数量：" + len)
+        var id = $('.div-imageBox').data().id
+        // log("id:"+typeof id + " " + id)
+        $('.img-active').fadeOut()
+        $('.img-active').removeClass('img-active')
+        var index = ( id + offset + len ) % len
+        var newEle = $($('.div-imageBox').find('.img-title')[index])
+        newEle.fadeIn()
+        newEle.addClass('img-active')
+        $('.div-imageBox').data("id", index)
+    }
+    var playNext = function() {
+        play(1)
+    }
+    var playPrev = function() {
+        play(-1)
+    }
+    var playByIndex = function(index) {
+        $('.img-active').fadeOut()
+        $('.img-active').removeClass('img-active')
+        $($('.img-title')[index]).fadeIn()
+        $($('.img-title')[index]).addClass('img-active')
+        $('.div-imageBox').data("id", index)
+    }
+    var __main = function() {
+        bindFlipOver()
+        bindThumbnail()
+    }
+    $(document).ready(function() {
+        __main()
+    })
+</script>
+</body>
+</html>
