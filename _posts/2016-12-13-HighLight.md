@@ -1,14 +1,16 @@
 ---
 layout: post
-title: "Welcome To My Blog"
+title: "HighLight"
 date: 2016-12-13 23:03:00
 description: 关于blog中的高亮效果
-tags: HighLight
+tags: highlight
 share: false
 ---
 
-# HihtLight / 高亮
+# HighLight / 高亮
+
 ## YAML 语法的几个高亮效果
+
 YML:
 {% highlight yml %}
 // 注释！？
@@ -111,3 +113,5 @@ private String getToken(HttpClient client) throws UnsupportedEncodingException{
     return null;
 }
 ```
+
+可以看到除了边框，几乎**没有区别**

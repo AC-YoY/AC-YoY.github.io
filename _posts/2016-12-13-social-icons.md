@@ -1,13 +1,15 @@
 ---
 layout: post
-title: "Social icons"
-date: 2015-07-01 16:25:06
-description: How to use existing and add new social icons
+title: "social icons"
+date: 2016-12-13 23:20:00
+description: 需要用图标？
+tags: icon
+share: false
 ---
 
-You can have social icons which could lead to your social profile.
-Out-of-the box it has: 
+# 图标
 
+现在使用中的一些图标：
 <ul class="social-media">
   <li>
     <a title="Github"
@@ -41,23 +43,20 @@ Out-of-the box it has:
   </li>
 </ul>
 
-They could be setup in `_config.yml`.
+## 需要一个新的图标？
 
-To add more icons do following steps:
+- 在这儿找一个好用的图标: [Font Awesome Icons](https://fortawesome.github.io/Font-Awesome/icons/)
+- 添加到 `_config.yml`中去
+- 在 `social.html` 文件中添加代码来检查图标是否存在 :
 
- - choose an icon you want to use: [Font Awesome Icons](https://fortawesome.github.io/Font-Awesome/icons/)
- - add variable in `_config.yml`
- - add icon in `social.html` with check if variable exists:
- 
 {% highlight html %}
 {% raw %}
- {% if site.social.rss %}
+ {% if site.social.variable %}
   <li>
-    <a title="{{ site.social.<your_social_variable> }}" 
-       href="{{site.url}}/{{ site.social.<your_social_variable> }}" 
+    <a title="{{ site.social.<your_social_variable> }}"
+       href="{{site.url}}/{{ site.social.<your_social_variable> }}"
        target="_blank"><font_awesome_icon></i></a>
   </li>
 {% endif %}
 {% endraw %}
 {% endhighlight html %}
-
