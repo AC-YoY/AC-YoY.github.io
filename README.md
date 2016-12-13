@@ -1,7 +1,6 @@
 ## 个人主页
 
 [主页](http://AC-YoY.github.io/)
-[临时主页](http://pavelmakhov.com/jekyll-clean-dark/)
 
 ### 练习项目
 
