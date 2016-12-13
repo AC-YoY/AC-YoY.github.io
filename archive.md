@@ -14,6 +14,6 @@ title: Blog archive
             {% capture year %}{{currentyear}}{% endcapture %}
         {% endif %}
         <li><a href="{{ post.url | prepend: site.baseurl | prepend: site.url}}">{{ post.title }}</a></li>
-        {% endfor %}
+        {% endfor %}</ul>
     </div>
 </div>
