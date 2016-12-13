@@ -1,6 +1,6 @@
-## 个人主页
+## [个人主页](http://AC-YoY.github.io/)
 
-[主页](http://AC-YoY.github.io/)
+点击就可以访问我的博客了
 
 ### 练习项目
 
