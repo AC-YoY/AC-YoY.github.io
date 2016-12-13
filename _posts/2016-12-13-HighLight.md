@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "HighLight"
+title: "HighLight / 代码高亮"
 date: 2016-12-13 23:03:00
-description: 关于blog中的高亮效果
+description: 程序员的Blog，怎么能少得了代码高亮！关于blog中的各种高亮效果
 tags: highlight
 share: false
 ---

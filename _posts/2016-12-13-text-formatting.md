@@ -2,7 +2,7 @@
 layout: post
 title: "文本样式"
 date: 2016-12-13 20:23:00
-description: 文本样式
+description: 文本基本样式，引用，强调，按键等一些用来装饰文字的方法
 tags: text
 share: false
 ---

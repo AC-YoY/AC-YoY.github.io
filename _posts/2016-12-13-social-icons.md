@@ -2,7 +2,7 @@
 layout: post
 title: "social icons"
 date: 2016-12-13 23:20:00
-description: 需要用图标？
+description: 需要用图标？除了常见的几个社交用按键，还有更多可供选择
 tags: icon
 share: false
 ---
